@@ -3,7 +3,7 @@
 ## License.....: MIT
 ##
 
-all: binaries
+all: release_dbf
 
 ##
 ## Detect host OS
@@ -42,7 +42,7 @@ $(DIR_OSX64)/rules-debug64.app: $(DIR_OSX64)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_OSX64)/hashcat-cli64.app: $(DIR_OSX64)/tsearch.o $(DIR_OSX64)/rp.o $(DIR_OSX64)/engine.o src/hashcat-cli.c
-	$(CC_OSX64) $(filter-out -s,$(CFLAGS_OSX64)) $(DIR_OSX64)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_OSX64)
+	-$(CC_OSX64) $(filter-out -s,$(CFLAGS_OSX64)) $(DIR_OSX64)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_OSX64)
 	cp $@ .
 
 $(DIR_OSX64)/engine.o: $(DIR_OSX64)/common.o src/engine.c
@@ -71,7 +71,7 @@ $(DIR_FREEBSD32)/rules-debug32.bin: $(DIR_FREEBSD32)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_FREEBSD32)/hashcat-cli32.bin: $(DIR_FREEBSD32)/tsearch.o $(DIR_FREEBSD32)/rp.o $(DIR_FREEBSD32)/engine.o src/hashcat-cli.c
-	$(CC_FREEBSD32) $(CFLAGS_FREEBSD32) $(DIR_FREEBSD32)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_FREEBSD32)
+	-$(CC_FREEBSD32) $(CFLAGS_FREEBSD32) $(DIR_FREEBSD32)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_FREEBSD32)
 	cp $@ .
 
 $(DIR_FREEBSD32)/engine.o: $(DIR_FREEBSD32)/common.o src/engine.c
@@ -100,7 +100,7 @@ $(DIR_FREEBSD64)/rules-debug64.bin: $(DIR_FREEBSD64)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_FREEBSD64)/hashcat-cli64.bin: $(DIR_FREEBSD64)/tsearch.o $(DIR_FREEBSD64)/rp.o $(DIR_FREEBSD64)/engine.o src/hashcat-cli.c
-	$(CC_FREEBSD64) $(CFLAGS_FREEBSD64) $(DIR_FREEBSD64)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_FREEBSD64)
+	-$(CC_FREEBSD64) $(CFLAGS_FREEBSD64) $(DIR_FREEBSD64)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_FREEBSD64)
 	cp $@ .
 
 $(DIR_FREEBSD64)/engine.o: $(DIR_FREEBSD64)/common.o src/engine.c
@@ -129,7 +129,7 @@ $(DIR_FREEBSDXOP)/rules-debugXOP.bin: $(DIR_FREEBSDXOP)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_FREEBSDXOP)/hashcat-cliXOP.bin: $(DIR_FREEBSDXOP)/tsearch.o $(DIR_FREEBSDXOP)/rp.o $(DIR_FREEBSDXOP)/engine.o src/hashcat-cli.c
-	$(CC_FREEBSDXOP) $(CFLAGS_FREEBSDXOP) $(DIR_FREEBSDXOP)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_FREEBSDXOP)
+	-$(CC_FREEBSDXOP) $(CFLAGS_FREEBSDXOP) $(DIR_FREEBSDXOP)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_FREEBSDXOP)
 	cp $@ .
 
 $(DIR_FREEBSDXOP)/engine.o: $(DIR_FREEBSDXOP)/common.o src/engine.c
@@ -159,7 +159,7 @@ $(DIR_LINUX32)/rules-debug32.bin: $(DIR_LINUX32)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_LINUX32)/hashcat-cli32.bin: $(DIR_LINUX32)/tsearch.o $(DIR_LINUX32)/rp.o  $(DIR_LINUX32)/engine.o src/hashcat-cli.c
-	$(CC_LINUX32) $(CFLAGS_LINUX32) $(DIR_LINUX32)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_LINUX32)
+	-$(CC_LINUX32) $(CFLAGS_LINUX32) $(DIR_LINUX32)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_LINUX32)
 	cp $@ .
 
 $(DIR_LINUX32)/engine.o: $(DIR_LINUX32)/common.o src/engine.c
@@ -189,7 +189,7 @@ $(DIR_LINUX64)/rules-debug64.bin: $(DIR_LINUX64)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_LINUX64)/hashcat-cli64.bin: $(DIR_LINUX64)/tsearch.o $(DIR_LINUX64)/rp.o $(DIR_LINUX64)/engine.o src/hashcat-cli.c
-	$(CC_LINUX64) $(CFLAGS_LINUX64) $(DIR_LINUX64)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_LINUX64)
+	-$(CC_LINUX64) $(CFLAGS_LINUX64) $(DIR_LINUX64)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_LINUX64)
 	cp $@ .
 
 $(DIR_LINUX64)/engine.o: $(DIR_LINUX64)/common.o src/engine.c
@@ -219,7 +219,7 @@ $(DIR_LINUXXOP)/rules-debugXOP.bin: $(DIR_LINUXXOP)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_LINUXXOP)/hashcat-cliXOP.bin: $(DIR_LINUXXOP)/tsearch.o $(DIR_LINUXXOP)/rp.o $(DIR_LINUXXOP)/engine.o src/hashcat-cli.c
-	$(CC_LINUXXOP) $(CFLAGS_LINUXXOP) $(DIR_LINUXXOP)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_LINUXXOP)
+	-$(CC_LINUXXOP) $(CFLAGS_LINUXXOP) $(DIR_LINUXXOP)/*.o src/hashcat-cli.c -o $@ $(LDFLAGS_LINUXXOP)
 	cp $@ .
 
 $(DIR_LINUXXOP)/engine.o: $(DIR_LINUXXOP)/common.o src/engine.c
@@ -249,7 +249,7 @@ $(DIR_WINDOWS32)/rules-debug32.exe: $(DIR_WINDOWS32)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_WINDOWS32)/hashcat-cli32.exe: $(DIR_WINDOWS32)/tsearch.o $(DIR_WINDOWS32)/rp.o $(DIR_WINDOWS32)/engine.o src/hashcat-cli.c
-	$(CC_WINDOWS32) $(CFLAGS_WINDOWS32) $(DIR_WINDOWS32)/*.o /usr/i686-w64-mingw32/lib/CRT_glob.o src/hashcat-cli.c -o $@ $(LDFLAGS_WINDOWS32)
+	-$(CC_WINDOWS32) $(CFLAGS_WINDOWS32) $(DIR_WINDOWS32)/*.o /usr/i686-w64-mingw32/lib/CRT_glob.o src/hashcat-cli.c -o $@ $(LDFLAGS_WINDOWS32)
 	cp $@ .
 
 $(DIR_WINDOWS32)/engine.o: $(DIR_WINDOWS32)/common.o src/engine.c
@@ -279,7 +279,7 @@ $(DIR_WINDOWS64)/rules-debug64.exe: $(DIR_WINDOWS64)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_WINDOWS64)/hashcat-cli64.exe: $(DIR_WINDOWS64)/tsearch.o $(DIR_WINDOWS64)/rp.o $(DIR_WINDOWS64)/engine.o src/hashcat-cli.c
-	$(CC_WINDOWS64) $(CFLAGS_WINDOWS64) $(DIR_WINDOWS64)/*.o /usr/x86_64-w64-mingw32/lib/CRT_glob.o src/hashcat-cli.c -o $@ $(LDFLAGS_WINDOWS64)
+	-$(CC_WINDOWS64) $(CFLAGS_WINDOWS64) $(DIR_WINDOWS64)/*.o /usr/x86_64-w64-mingw32/lib/CRT_glob.o src/hashcat-cli.c -o $@ $(LDFLAGS_WINDOWS64)
 	cp $@ .
 
 $(DIR_WINDOWS64)/engine.o: $(DIR_WINDOWS64)/common.o src/engine.c
@@ -309,7 +309,7 @@ $(DIR_WINDOWSXOP)/rules-debugXOP.exe: $(DIR_WINDOWSXOP)/rp.o src/rules-debug.c
 	cp $@ .
 
 $(DIR_WINDOWSXOP)/hashcat-cliXOP.exe: $(DIR_WINDOWSXOP)/tsearch.o $(DIR_WINDOWSXOP)/rp.o $(DIR_WINDOWSXOP)/engine.o src/hashcat-cli.c
-	$(CC_WINDOWSXOP) $(CFLAGS_WINDOWSXOP) $(DIR_WINDOWSXOP)/*.o /usr/x86_64-w64-mingw32/lib/CRT_glob.o src/hashcat-cli.c -o $@ $(LDFLAGS_WINDOWSXOP)
+	-$(CC_WINDOWSXOP) $(CFLAGS_WINDOWSXOP) $(DIR_WINDOWSXOP)/*.o /usr/x86_64-w64-mingw32/lib/CRT_glob.o src/hashcat-cli.c -o $@ $(LDFLAGS_WINDOWSXOP)
 	cp $@ .
 
 $(DIR_WINDOWSXOP)/engine.o: $(DIR_WINDOWSXOP)/common.o src/engine.c
@@ -341,9 +341,10 @@ clean:
 	rm -f $(DIR_WINDOWS64)/*
 	rm -f $(DIR_WINDOWSXOP)/*
 	rm -f core out word hash hashcat.pot
-	rm -rf release
+	rm -rf bin
 
 binaries: linux windows osx
+binaries_dbf: linux64 linux32 windows64 windows32 osx64
 
 osx: osx64
 linux: linux32 linux64 linuxXOP
@@ -362,22 +363,42 @@ windows64:  $(DIR_WINDOWS64)/hashcat-cli64.exe
 windowsXOP: $(DIR_WINDOWSXOP)/hashcat-cliXOP.exe
 
 release: binaries
-	rm -rf release
-	mkdir release
-	cp -a $(DIR_OSX64)/hashcat-cli64.app       release/
-	cp -a $(DIR_LINUX32)/hashcat-cli32.bin     release/
-	cp -a $(DIR_LINUX64)/hashcat-cli64.bin     release/
-	cp -a $(DIR_LINUXXOP)/hashcat-cliXOP.bin   release/
-	cp -a $(DIR_WINDOWS32)/hashcat-cli32.exe   release/
-	cp -a $(DIR_WINDOWS64)/hashcat-cli64.exe   release/
-	cp -a $(DIR_WINDOWSXOP)/hashcat-cliXOP.exe release/
-	cp -a charsets docs rules tables salts examples release/
-	find release -type f -exec chmod 600 {} \;
-	find release -type d -exec chmod 700 {} \;
-	chmod 700 release/*.bin
-	chmod 700 release/*.app
-	unix2dos release/salts/*
-	unix2dos release/rules/*
-	unix2dos release/tables/*
-	unix2dos release/docs/*
-	unix2dos release/examples/*
+	rm -rf bin
+	mkdir bin
+	cp -a $(DIR_OSX64)/hashcat-cli64.app       bin/
+	cp -a $(DIR_LINUX32)/hashcat-cli32.bin     bin/
+	cp -a $(DIR_LINUX64)/hashcat-cli64.bin     bin/
+	cp -a $(DIR_LINUXXOP)/hashcat-cliXOP.bin   bin/
+	cp -a $(DIR_WINDOWS32)/hashcat-cli32.exe   bin/
+	cp -a $(DIR_WINDOWS64)/hashcat-cli64.exe   bin/
+	cp -a $(DIR_WINDOWSXOP)/hashcat-cliXOP.exe bin/
+	cp -a charsets docs rules tables salts examples bin/
+	find bin -type f -exec chmod 600 {} \;
+	find bin -type d -exec chmod 700 {} \;
+	chmod 700 bin/*.bin
+	chmod 700 bin/*.app
+	unix2dos bin/salts/*
+	unix2dos bin/rules/*
+	unix2dos bin/tables/*
+	unix2dos bin/docs/*
+	unix2dos bin/examples/*
+
+release_dbf: binaries_dbf
+	rm -rf bin
+	mkdir bin
+	mkdir bin/dep
+
+	cp -a $(DIR_OSX64)/hashcat-cli64.app       bin/cpu_mac_64.app
+	cp -a $(DIR_LINUX32)/hashcat-cli32.bin     bin/cpu_linux_32.bin
+	cp -a $(DIR_LINUX64)/hashcat-cli64.bin     bin/cpu_linux_64.bin
+	cp -a $(DIR_WINDOWS32)/hashcat-cli32.exe   bin/cpu_win_32.exe
+	cp -a $(DIR_WINDOWS64)/hashcat-cli64.exe   bin/cpu_win_64.exe
+	cp -a charsets rules tables salts bin/dep/
+
+	find bin -type f -exec chmod 600 {} \;
+	find bin -type d -exec chmod 700 {} \;
+	chmod 700 bin/*.bin
+	chmod 700 bin/*.app
+	unix2dos bin/dep/salts/*
+	unix2dos bin/dep/rules/*
+	unix2dos bin/dep/tables/*

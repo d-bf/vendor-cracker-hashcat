@@ -7,3 +7,4 @@ obj/*.o
 release/*
 deps/*
 deps/**
+bin
