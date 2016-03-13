@@ -389,12 +389,12 @@ release_dbf: binaries_dbf
 	rm -rf bin
 	mkdir bin
 	mkdir bin/dep
-	cp -a $(DIR_OSX64)/hashcat-cli64.app       bin/cpu_mac_64.app
-	cp -a $(DIR_LINUX32)/hashcat-cli32.bin     bin/cpu_linux_32.bin
-	cp -a $(DIR_LINUX64)/hashcat-cli64.bin     bin/cpu_linux_64.bin
-	cp -a $(DIR_WINDOWS32)/hashcat-cli32.exe   bin/cpu_win_32.exe
-	cp -a $(DIR_WINDOWS64)/hashcat-cli64.exe   bin/cpu_win_64.exe
-	cp -a charsets rules tables salts bin/dep/
+	cp -a $(DIR_OSX64)/hashcat-cli64.app        bin/cpu_mac_64.app
+	cp -a $(DIR_LINUX32)/hashcat-cli32.bin      bin/cpu_linux_32.bin
+	cp -a $(DIR_LINUX64)/hashcat-cli64.bin      bin/cpu_linux_64.bin
+	cp -a $(DIR_WINDOWS32)/hashcat-cli32.exe    bin/cpu_win_32.exe
+	cp -a $(DIR_WINDOWS64)/hashcat-cli64.exe    bin/cpu_win_64.exe
+	cp -a charsets rules tables salts info.json bin/dep/
 	find bin -type f -exec chmod 600 {} \;
 	find bin -type d -exec chmod 700 {} \;
 	chmod 700 bin/*.bin
